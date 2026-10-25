@@ -1,0 +1,590 @@
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap");
+
+/* ==========================================
+   1. GLOBAL STYLING
+========================================== */
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #17263d;
+  background: #f6f8fc;
+}
+
+body {
+  margin: 0;
+  background: #f6f8fc;
+  color: #17263d;
+  font-family: "DM Sans", sans-serif;
+}
+
+/* ==========================================
+   2. NAVIGATION BAR
+========================================== */
+
+.topbar {
+  background: #162a4b;
+  padding: 20px 0;
+}
+
+.brand {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: #d8e8ff;
+}
+
+.topbar .btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: white;
+  border-radius: 9px;
+  padding: 8px 16px;
+  font-weight: 600;
+}
+
+.topbar .btn-outline-light:hover {
+  background: white;
+  color: #162a4b;
+}
+
+/* ==========================================
+   3. HOMEPAGE HERO SECTION
+========================================== */
+
+.hero {
+  background: linear-gradient(
+    120deg,
+    #e3efff,
+    #eef7f5
+  );
+  border-radius: 22px;
+}
+
+.hero p {
+  color: #53667c;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  font-weight: 800;
+  color: #4675a5;
+}
+
+/* ==========================================
+   4. CLASSROOM CARDS AND PANELS
+========================================== */
+
+.class-card,
+.panel {
+  background: #fff;
+  border: 1px solid #e6ebf2;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px #192b4b08;
+}
+
+.class-card {
+  color: #17263d;
+  text-decoration: none;
+  transition:
+    transform 0.15s,
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+
+.class-card:hover {
+  transform: translateY(-3px);
+  border-color: #93b9ee;
+  box-shadow: 0 10px 25px rgba(25, 43, 75, 0.08);
+}
+
+/* ==========================================
+   5. CLASSROOM CARD HEADER
+========================================== */
+
+.class-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.class-card-header > .eyebrow {
+  padding-top: 12px;
+  flex-shrink: 0;
+}
+
+.class-card-header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-left: auto;
+}
+
+/* ==========================================
+   6. TEACHER BADGE
+========================================== */
+
+.teacher-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  background: #eaf2ff;
+  border: 1px solid #d5e5fb;
+  border-radius: 12px;
+
+  padding: 9px 13px;
+  flex-shrink: 0;
+
+  transition:
+    background-color 0.15s,
+    border-color 0.15s;
+}
+
+.class-card:hover .teacher-badge {
+  background: #e1eeff;
+  border-color: #bdd7fa;
+}
+
+.teacher-avatar {
+  width: 36px;
+  height: 36px;
+
+  background: #266bc4;
+  color: #ffffff;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 17px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.teacher-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.3;
+}
+
+.teacher-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #6385ad;
+  text-transform: uppercase;
+}
+
+.teacher-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1c559d;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   7. CLASSROOM CARD ARROW
+========================================== */
+
+.class-arrow {
+  font-size: 24px;
+  line-height: 1;
+  color: #17263d;
+  flex-shrink: 0;
+  transition:
+    transform 0.15s,
+    color 0.15s;
+}
+
+.class-card:hover .class-arrow {
+  transform: translate(2px, -2px);
+  color: #266bc4;
+}
+
+/* ==========================================
+   8. STUDENT SEARCH AND TABLES
+========================================== */
+
+.search {
+  max-width: 300px;
+}
+
+.student-name {
+  font-weight: 700;
+  color: #235db4;
+  text-decoration: none;
+}
+
+.student-name:hover {
+  text-decoration: underline;
+}
+
+.table th {
+  background: #f8fafd;
+  color: #66788c;
+  font-size: 0.82rem;
+}
+
+.table td,
+.table th {
+  padding: 14px 20px;
+}
+
+.backlink {
+  color: #476887;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.backlink:hover {
+  color: #235db4;
+  text-decoration: underline;
+}
+
+/* ==========================================
+   9. DATE INPUT AND CHOICE GROUPS
+========================================== */
+
+.date-input {
+  width: 190px;
+}
+
+.choice {
+  border: 1px solid #dbe3ee;
+  border-radius: 10px;
+  padding: 11px 15px;
+
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+
+  cursor: pointer;
+  font-size: 0.9rem;
+  background: #fff;
+  transition: 0.15s;
+}
+
+.choice.selected {
+  background: #e9f2ff;
+  border-color: #3678d4;
+  color: #1c559d;
+}
+
+.choice input {
+  accent-color: #2c6fc8;
+}
+
+/* ==========================================
+   10. BUTTONS
+========================================== */
+
+.btn-primary {
+  background: #266bc4;
+  border-color: #266bc4;
+}
+
+.btn-primary:hover {
+  background: #1e5bab;
+  border-color: #1e5bab;
+}
+
+/* Disabled Save button when record exists */
+
+.btn.save-disabled,
+.btn.save-disabled:hover,
+.btn.save-disabled:focus {
+  background-color: #e5e7eb !important;
+  border-color: #d1d5db !important;
+  color: #9ca3af !important;
+  opacity: 0.65 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+}
+
+/* ==========================================
+   11. PERFORMANCE STATISTICS
+========================================== */
+
+.stat {
+  background: #f5f8fc;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.progress-bar {
+  background: #3c82d9;
+}
+
+/* ==========================================
+   12. OBSERVATION CALENDAR
+========================================== */
+
+.observation-calendar {
+  max-width: 420px;
+  width: 100%;
+}
+
+.observation-calendar .react-calendar {
+  width: 100%;
+  border: 1px solid #e0e6ef;
+  border-radius: 14px;
+  padding: 12px;
+  font-family: inherit;
+  background: white;
+}
+
+.observation-calendar .react-calendar__tile {
+  position: relative;
+  min-height: 48px;
+  border-radius: 8px;
+}
+
+.observation-calendar .react-calendar__tile--active {
+  background: #e7f0ff !important;
+  color: #164b8a !important;
+}
+
+.observation-calendar .react-calendar__tile--now {
+  background: #f1f5f9;
+}
+
+.observation-calendar .react-calendar__tile:enabled:hover {
+  background: #edf4ff;
+}
+
+.record-dot {
+  display: block;
+  width: 7px;
+  height: 7px;
+  margin: 3px auto 0;
+  border-radius: 50%;
+  background-color: #20a36b;
+}
+
+/* ==========================================
+   13. LOGIN PAGE
+========================================== */
+
+.login-page {
+  min-height: 100vh;
+
+  background: linear-gradient(
+    135deg,
+    #f4f7fc 0%,
+    #e6f0ff 55%,
+    #edf8f5 100%
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 440px;
+
+  background: #ffffff;
+  border: 1px solid #e0e8f2;
+  border-radius: 20px;
+
+  padding: 40px;
+
+  box-shadow: 0 18px 50px rgba(27, 54, 89, 0.08);
+}
+
+.login-card h1 {
+  color: #192b45;
+  font-weight: 750;
+  letter-spacing: -0.8px;
+}
+
+.login-card .form-control {
+  border-radius: 10px;
+  padding: 12px 14px;
+  border-color: #d8e2ee;
+}
+
+.login-card .form-control:focus {
+  border-color: #4a8ed8;
+  box-shadow: 0 0 0 3px rgba(74, 142, 216, 0.12);
+}
+
+.login-card .btn-primary {
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 600;
+}
+
+/* ==========================================
+   14. RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 768px) {
+
+  .class-card-header {
+    gap: 10px;
+  }
+
+  .class-card-header-right {
+    gap: 10px;
+  }
+
+  .teacher-badge {
+    padding: 8px 10px;
+  }
+
+  .teacher-name {
+    font-size: 13px;
+  }
+
+  .teacher-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+  }
+
+}
+
+@media (max-width: 576px) {
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .search {
+    max-width: none;
+    width: 100%;
+  }
+
+  .table td,
+  .table th {
+    padding: 12px;
+  }
+
+  .choice {
+    width: 100%;
+  }
+
+  .login-card {
+    padding: 28px 22px;
+  }
+
+  .class-card-header {
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .class-card-header > .eyebrow {
+    padding-top: 8px;
+  }
+
+  .class-card-header-right {
+    gap: 9px;
+  }
+
+  .teacher-badge {
+    padding: 7px 9px;
+    gap: 7px;
+  }
+
+  .teacher-avatar {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .teacher-name {
+    font-size: 12px;
+  }
+
+  .teacher-label {
+    font-size: 9px;
+  }
+
+  .class-arrow {
+    font-size: 20px;
+  }
+
+}
+
+@media (max-width: 380px) {
+
+  .class-card-header {
+    flex-wrap: wrap;
+  }
+
+  .class-card-header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .teacher-name {
+    font-size: 13px;
+  }
+
+}
+
+/* ==========================================
+   EXTRA CREDITS AND POINTS OF CONCERN
+========================================== */
+
+/* ==========================================
+   15. EXTRA CREDITS AND POINTS OF CONCERN
+========================================== */
+
+/* Extra Credits - Green Theme */
+
+.note-panel-positive {
+  border-color: #b8e3c7;
+  background-color: #f3fbf5;
+}
+
+.note-heading-positive {
+  color: #198754;
+}
+
+.note-input-positive {
+  border-color: #a5d7b8;
+}
+
+.note-input-positive:focus {
+  border-color: #198754;
+  box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.12);
+}
+
+/* Points of Concern - Softer Red Theme */
+
+.note-panel-concern {
+  background-color: #ffeded;
+  border-color: #efc5c5;
+}
+
+.note-heading-concern {
+  color: #d98585;
+}
+
+.note-input-concern {
+  background-color: #fffafa;
+  border-color: #f0d0d0;
+  color: #704b4b;
+}
+
+.note-input-concern:focus {
+  background-color: #ffffff;
+  border-color: #e8aaaa;
+  box-shadow: 0 0 0 0.2rem rgba(232, 170, 170, 0.15);
+}
+

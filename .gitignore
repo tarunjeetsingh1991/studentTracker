@@ -1,0 +1,36 @@
+# macOS
+.DS_Store
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+application-local.properties
+application-prod.properties
+**/application-local.properties
+**/application-prod.properties
+
+# Java / Maven
+**/target/
+*.class
+*.log
+.mvn/timing.properties
+
+# React / Vite
+**/node_modules/
+**/dist/
+**/build/
+**/coverage/
+
+# IDE
+.idea/
+.vscode/
+.project
+.classpath
+.settings/
+*.iml
+
+# Temporary files
+*.tmp
+*.bak
