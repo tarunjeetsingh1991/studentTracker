@@ -1,7 +1,9 @@
+
 package com.studenttracker.auth;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -11,6 +13,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -18,6 +21,9 @@ import org.springframework.web.cors.CorsConfiguration;
 
 @Configuration
 public class SecurityConfig {
+
+    @Value("${app.cors.origin:https://student-tracker-frontend.pages.dev}")
+    private String frontendOrigin;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -31,8 +37,7 @@ public class SecurityConfig {
         return username -> {
             var admin = repository.findByUsername(username)
                 .orElseThrow(() ->
-                    new org.springframework.security.core.userdetails
-                        .UsernameNotFoundException("User not found")
+                    new UsernameNotFoundException("User not found")
                 );
 
             return User.withUsername(admin.getUsername())
@@ -59,11 +64,16 @@ public class SecurityConfig {
                 CorsConfiguration config = new CorsConfiguration();
 
                 config.setAllowedOrigins(
-                    List.of("http://localhost:5173")
+                    List.of(
+                        "http://localhost:5173",
+                        frontendOrigin
+                    )
                 );
+
                 config.setAllowedMethods(
                     List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 );
+
                 config.setAllowedHeaders(List.of("*"));
                 config.setAllowCredentials(true);
 
@@ -75,17 +85,21 @@ public class SecurityConfig {
                     SessionCreationPolicy.IF_REQUIRED
                 )
             )
-        .authorizeHttpRequests(auth -> auth
-            .requestMatchers(
-                "/healthz",
-                "/swagger-ui/**",
-                "/swagger-ui.html",
-                "/v3/api-docs/**",
-                "/v3/api-docs"
-            ).permitAll()
-            .requestMatchers(HttpMethod.POST, "/api/auth/register", "/api/auth/login").permitAll()
-            .anyRequest().authenticated()
-        );
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers(
+                    "/healthz",
+                    "/swagger-ui/**",
+                    "/swagger-ui.html",
+                    "/v3/api-docs/**",
+                    "/v3/api-docs"
+                ).permitAll()
+                .requestMatchers(
+                    HttpMethod.POST,
+                    "/api/auth/register",
+                    "/api/auth/login"
+                ).permitAll()
+                .anyRequest().authenticated()
+            );
 
         return http.build();
     }
