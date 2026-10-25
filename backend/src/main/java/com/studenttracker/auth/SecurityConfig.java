@@ -76,6 +76,7 @@ public class SecurityConfig {
                 )
             )
             .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/healthz").permitAll()
                 .requestMatchers(
                     HttpMethod.POST,
                     "/api/auth/register",
