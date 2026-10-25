@@ -75,15 +75,17 @@ public class SecurityConfig {
                     SessionCreationPolicy.IF_REQUIRED
                 )
             )
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/healthz").permitAll()
-                .requestMatchers(
-                    HttpMethod.POST,
-                    "/api/auth/register",
-                    "/api/auth/login"
-                ).permitAll()
-                .anyRequest().authenticated()
-            );
+        .authorizeHttpRequests(auth -> auth
+            .requestMatchers(
+                "/healthz",
+                "/swagger-ui/**",
+                "/swagger-ui.html",
+                "/v3/api-docs/**",
+                "/v3/api-docs"
+            ).permitAll()
+            .requestMatchers(HttpMethod.POST, "/api/auth/register", "/api/auth/login").permitAll()
+            .anyRequest().authenticated()
+        );
 
         return http.build();
     }
